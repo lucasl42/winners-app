@@ -23,13 +23,7 @@ public class FuncionarioService {
 	}
 	
 	public void saveFuncionarios(Funcionario funcionario){
-		Funcionario func = new Funcionario();
-		func.setFuncional(funcionario.getFuncional());
-		func.setEmail(funcionario.getEmail());
-		func.setPerfil(funcionario.getPerfil());
-		func.setNome(funcionario.getNome());
-		func.setSquad(funcionario.getSquad());
-		funcionarioRepository.save(func);
+		funcionarioRepository.save(funcionario);
 	}
 	
 	public void deletarFuncionario(Funcionario funcionario) {

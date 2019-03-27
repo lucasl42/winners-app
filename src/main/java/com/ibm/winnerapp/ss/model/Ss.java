@@ -28,10 +28,10 @@ public class Ss implements Serializable{
 	@Id
     @Column(name = "ID")
     private Long id;
-	private Long totalHoras;
+	private Integer totalHoras;
 	private Date dataInicial;
 	private Date dataFinal;
-	private Date horasRestantes;
+	private Integer horasRestantes;
 	@LastModifiedDate
     private Date timeStamp;
 
@@ -41,8 +41,75 @@ public class Ss implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "squad")
-	private Squad squad;	
-	
+	private Squad squad;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getTotalHoras() {
+		return totalHoras;
+	}
+
+	public void setTotalHoras(Integer totalHoras) {
+		this.totalHoras = totalHoras;
+	}
+
+	public Date getDataInicial() {
+		return dataInicial;
+	}
+
+	public void setDataInicial(Date dataInicial) {
+		this.dataInicial = dataInicial;
+	}
+
+	public Date getDataFinal() {
+		return dataFinal;
+	}
+
+	public void setDataFinal(Date dataFinal) {
+		this.dataFinal = dataFinal;
+	}
+
+	public Integer getHorasRestantes() {
+		return horasRestantes;
+	}
+
+	public void setHorasRestantes(Integer horasRestantes) {
+		this.horasRestantes = horasRestantes;
+	}
+
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Squad getSquad() {
+		return squad;
+	}
+
+	public void setSquad(Squad squad) {
+		this.squad = squad;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}	
 	
 		
 	

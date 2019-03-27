@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ibm.winnerapp.squad.model.Squad;
@@ -27,13 +28,14 @@ public class Funcionario implements Serializable {
     private long funcional;
     private String nome;
     private String email;
-    private int perfil;
+    private EnumPerfilFuncionario perfil;
     @LastModifiedDate
     private Date timeStamp;
     
- 
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_squad")
+    @Nullable
 	private Squad squad;
 
     
@@ -66,14 +68,14 @@ public class Funcionario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 
-	public int getPerfil() {
+
+	public EnumPerfilFuncionario getPerfil() {
 		return perfil;
 	}
 
 
-	public void setPerfil(int perfil) {
+	public void setPerfil(EnumPerfilFuncionario perfil) {
 		this.perfil = perfil;
 	}
 
@@ -100,6 +102,13 @@ public class Funcionario implements Serializable {
 
 	public void setSquad(Squad squad) {
 		this.squad = squad;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Funcionario [funcional=" + funcional + ", nome=" + nome + ", email=" + email + ", perfil=" + perfil
+				+ ", timeStamp=" + timeStamp + ", squad=" + squad + "]";
 	}
     
     
