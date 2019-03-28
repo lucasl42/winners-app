@@ -42,8 +42,63 @@ public class LancamentoHoras implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "lancamento_de_horas_ss")
     private Ss ss;
-	
 
+    
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Long getQuantidadeDeHoras() {
+		return quantidadeDeHoras;
+	}
+
+	public void setQuantidadeDeHoras(Long quantidadeDeHoras) {
+		this.quantidadeDeHoras = quantidadeDeHoras;
+	}
+
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Ss getSs() {
+		return ss;
+	}
+
+	public void setSs(Ss ss) {
+		this.ss = ss;
+	}
+
+	@Override
+	public String toString() {
+		return "LancamentoHoras [id=" + id + ", data=" + data + ", quantidadeDeHoras=" + quantidadeDeHoras
+				+ ", timeStamp=" + timeStamp + ", funcionario=" + funcionario + ", ss=" + ss + "]";
+	}
+	
+	
 	
 	
 
