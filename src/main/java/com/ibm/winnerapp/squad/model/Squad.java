@@ -2,7 +2,6 @@ package com.ibm.winnerapp.squad.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,17 +16,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.LastModifiedDate;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.ibm.winnerapp.audition.Auditable;
 import com.ibm.winnerapp.funcionario.model.Funcionario;
 import com.ibm.winnerapp.ss.model.Ss;
 
 @Entity
 @Table(name = "squad")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Squad  implements Serializable{
+public class Squad extends Auditable implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -35,8 +33,6 @@ public class Squad  implements Serializable{
 	@Column(name = "ID")
 	private Long id;
 	private String nome;
-	@LastModifiedDate
-	private Date timeStamp;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "funcionario_lider")
@@ -71,17 +67,6 @@ public class Squad  implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-
-	public Date getTimeStamp() {
-		return timeStamp;
-	}
-
-
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
 
 	public Funcionario getLider() {
 		return lider;

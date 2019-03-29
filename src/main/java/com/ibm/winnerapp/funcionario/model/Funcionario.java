@@ -1,6 +1,5 @@
 package com.ibm.winnerapp.funcionario.model;
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,16 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.ibm.winnerapp.audition.Auditable;
 import com.ibm.winnerapp.squad.model.Squad;
 
 @Entity
 @Table(name = "funcionario")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Funcionario implements Serializable {
+public class Funcionario extends Auditable implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -29,8 +28,6 @@ public class Funcionario implements Serializable {
     private String nome;
     private String email;
     private EnumPerfilFuncionario perfil;
-    @LastModifiedDate
-    private Date timeStamp;
     
     
     @ManyToOne(fetch = FetchType.LAZY)
@@ -84,17 +81,6 @@ public class Funcionario implements Serializable {
 		return serialVersionUID;
 	}
 
-
-	public Date getTimeStamp() {
-		return timeStamp;
-	}
-
-
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
-
 	public Squad getSquad() {
 		return squad;
 	}
@@ -108,7 +94,7 @@ public class Funcionario implements Serializable {
 	@Override
 	public String toString() {
 		return "Funcionario [funcional=" + funcional + ", nome=" + nome + ", email=" + email + ", perfil=" + perfil
-				+ ", timeStamp=" + timeStamp + ", squad=" + squad + "]";
+				+ ", squad=" + squad + "]";
 	}
     
     

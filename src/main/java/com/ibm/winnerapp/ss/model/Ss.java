@@ -12,14 +12,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.LastModifiedDate;
-
+import com.ibm.winnerapp.audition.Auditable;
 import com.ibm.winnerapp.funcionario.model.Funcionario;
 import com.ibm.winnerapp.squad.model.Squad;
 
 @Entity
 @Table(name = "ss")
-public class Ss implements Serializable{
+public class Ss extends Auditable implements Serializable{
 	
 	/**
 	 * 
@@ -32,8 +31,6 @@ public class Ss implements Serializable{
 	private Date dataInicial;
 	private Date dataFinal;
 	private Integer horasRestantes;
-	@LastModifiedDate
-    private Date timeStamp;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "lider")
@@ -81,14 +78,6 @@ public class Ss implements Serializable{
 
 	public void setHorasRestantes(Integer horasRestantes) {
 		this.horasRestantes = horasRestantes;
-	}
-
-	public Date getTimeStamp() {
-		return timeStamp;
-	}
-
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
 	}
 
 	public Funcionario getFuncionario() {
