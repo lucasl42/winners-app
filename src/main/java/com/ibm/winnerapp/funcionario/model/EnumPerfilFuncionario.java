@@ -1,7 +1,7 @@
 package com.ibm.winnerapp.funcionario.model;
 
 public enum EnumPerfilFuncionario {
-	Funcionario(1),Lider(2),Administrador(3);
+	FUNCIONARIO(1),LIDER(2),ADMINISTRADOR(3);
 	
 	public int tipo;
 	
