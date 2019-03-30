@@ -2,6 +2,7 @@ package com.ibm.winnerapp.funcionario.service;
 
 import java.util.List;
 
+import com.ibm.winnerapp.funcionario.model.EnumPerfilFuncionario;
 import com.ibm.winnerapp.funcionario.model.Funcionario;
 
 public interface FuncionarioService {
@@ -13,4 +14,6 @@ public interface FuncionarioService {
 	public void saveFuncionarios(Funcionario funcionario);
 	
 	public void deletarFuncionario(Funcionario funcionario);
+	
+	public EnumPerfilFuncionario[]getPerfis();
 }

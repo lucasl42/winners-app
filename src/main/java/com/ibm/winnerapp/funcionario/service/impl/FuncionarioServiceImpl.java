@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.ibm.winnerapp.funcionario.model.EnumPerfilFuncionario;
 import com.ibm.winnerapp.funcionario.model.Funcionario;
 import com.ibm.winnerapp.funcionario.repository.FuncionarioRepository;
 import com.ibm.winnerapp.funcionario.service.FuncionarioService;
@@ -32,6 +34,11 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 	@Override
 	public void deletarFuncionario(Funcionario funcionario) {
 		funcionarioRepository.delete(funcionario);
+	}
+
+	@Override
+	public EnumPerfilFuncionario[] getPerfis() {
+		return EnumPerfilFuncionario.values();
 	}
 }
 

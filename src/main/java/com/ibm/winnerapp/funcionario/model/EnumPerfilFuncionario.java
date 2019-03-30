@@ -1,15 +1,15 @@
 package com.ibm.winnerapp.funcionario.model;
 
 public enum EnumPerfilFuncionario {
-	FUNCIONARIO(1),LIDER(2),ADMINISTRADOR(3);
+	FUNCIONARIO("Funcionario"),LIDER("Lider"),ADMINISTRADOR("Administrador");
 	
-	public int tipo;
+	public String tipo;
 	
-	private EnumPerfilFuncionario(int tipo) {
+	private EnumPerfilFuncionario(String tipo) {
 		this.tipo = tipo;
 	}
 	
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 

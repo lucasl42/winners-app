@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.winnerapp.funcionario.model.EnumPerfilFuncionario;
 import com.ibm.winnerapp.funcionario.model.Funcionario;
 import com.ibm.winnerapp.funcionario.service.FuncionarioService;
 
@@ -54,6 +55,12 @@ public class FuncionarioController {
 	@GetMapping( value = "{funcional}") 
 	public Funcionario getFuncionario(@PathVariable(name = "funcional") long funcional) {
 		return funcionarioservice.getOne(funcional);
+	}
+	
+	@CrossOrigin
+	@GetMapping(value = "perfis")
+	public EnumPerfilFuncionario[] getPerfis(){
+		return funcionarioservice.getPerfis();
 	}
 
 }
